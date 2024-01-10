@@ -1,0 +1,62 @@
+body {
+  border: 5px solid black;
+  border-radius: 20px;
+  margin: 30px 100px;
+
+}
+
+.title {
+  text-align: center;
+  margin: 10px;
+  margin-bottom: 30px;
+}
+
+.title > hr {
+  height: 2px;
+  background-color: black;
+  margin: 0px -10px;
+}
+
+.main {
+  border: 5px;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+}
+
+.main > img {
+  width: 300px;
+  height: auto;
+  margin: 10px;
+  border: 5px solid black;
+  border-radius: 10px;
+  order: 1;
+}
+
+.movieinfo {
+  margin: 10px;
+  margin-left: 100px;
+  padding: 10px;
+  width: 500px;
+  border: 5px solid black;
+  border-radius: 10px;
+  text-align: center;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movieinfo > p {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.name,
+.date,
+.rate,
+.summary {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
