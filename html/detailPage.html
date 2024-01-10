@@ -1,1 +1,108 @@
 <!-- 상세 페이지 만드는 공간 (영화 리뷰 및 댓글달기) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingle Movie</title>
+
+    <style>
+        body {
+            border: 5px solid black;
+            border-radius: 20px;
+            margin: 30px 100px;
+
+        }
+
+        .title {
+            text-align: center;
+            margin: 10px;
+            margin-bottom: 30px;
+        }
+
+        .title>hr {
+            height: 2px;
+            background-color: black;
+            margin: 0px -10px;
+        }
+
+        .main {
+            border: 5px;
+            display: flex;
+            margin: 10px;
+            justify-content: center;
+
+        }
+
+        .main>img {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+            border: 5px solid black;
+            border-radius: 10px;
+            order: 1;
+        }
+
+        .movieinfo {
+
+            margin: 10px;
+            margin-left: 100px;
+            padding: 10px;
+            width: 500px;
+            border: 5px solid black;
+            border-radius: 10px;
+            text-align: center;
+            order: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .movieinfo>p {
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        
+        .name,
+        .date,
+        .rate,
+        .summary {
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        
+        
+    </style>
+
+</head>
+
+<body>
+    <div class="title">
+        <h1>Bingle Movie</h1>
+        <hr>
+    </div>
+
+    <div class="main">
+        <img src="https://image.tmdb.org/t/p/original/g5mGMbiZLvgEf628D60GQrPHFJC.jpg" alt="">
+        <div class="movieinfo">
+            <h1 class="name">웡카</h1>
+            <p class="date">2024년 1월 31일</p>
+            <p class="rate">7.09</p>
+            <p class="summary">마법사이자 초콜릿 메이커 ‘윌리 웡카’의 꿈은 디저트의 성지, ‘달콤 백화점’에 자신만의 초콜릿 가게를 여는 것.
+                가진 것이라고는 낡은 모자 가득한 꿈과 단돈 12소베른 뿐이지만 특별한 마법의 초콜릿으로 사람들을 사로잡을 자신이 있다.
+                하지만 먹을 것도, 잠잘 곳도, 의지할 사람도 없는 상황 속에서 낡은 여인숙에 머물게 된 ‘웡카’는 ‘스크러빗 부인’과 ‘블리처’의 계략에 빠져 눈더미처럼 불어난
+                숙박비로 인해 순식간에 빚더미에 오른다. 게다가 밤마다 초콜릿을 훔쳐가는 작은 도둑 ‘움파 룸파’의 등장과 ‘달콤 백화점’을 독점한
+                초콜릿 카르텔의 강력한 견제까지. 세계 최고의 초콜릿 메이커가 되는 길은 험난하기만 한데…</p>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
