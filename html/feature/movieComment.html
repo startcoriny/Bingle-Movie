@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/common/common.css"/>
-    <link rel="stylesheet" href="../css/feature/movieComment.css">
+    <link rel="stylesheet" type="text/css" href="/css/common/common.css"/>
+    <link rel="stylesheet" href="/css/feature/movieComment.css">
     <title>Bingle Movie Comment Page</title>
 </head>
 
 <body>
+       <!--header-->
+       <div id="header"></div>
+
     <hr>
     <div class="rating_box">
         <label for="star">별점: </label>
@@ -24,6 +27,9 @@
         <button id="comments_button">작성</button>
     </div>
     <hr>
+
+    <!--footer 추가-->
+    <div id="footer"></div>
 
     <script type="module">
         const rating_input = document.querySelector('.rating input');
