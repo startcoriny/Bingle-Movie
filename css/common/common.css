@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@font-face {
+  font-family: "iceJaram-Rg";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceJaram-Rg.woff2")
+    format("woff2");
 
+}
 * {
   margin: 0;
   padding: 0;
@@ -17,15 +21,17 @@ body,
   padding: 40px;
 }
 
-.backspace {
+.backspace a {
   color: #fff;
   font-size: larger;
-  font-family: 'Poppins', sans-serif;  
+  font-family: 'Poppins', sans-serif;
 }
-
+.backspace a:link{
+  text-decoration: none;
+}
 #header {
-  /*font-family: 'iceJaram-Rg';*/ 
-  font-size: 50px;
+  font-family: "iceJaram-Rg";
+  font-size: 9em;
   font-weight: 600;
   color: goldenrod;
   display: flex;
