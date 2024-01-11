@@ -104,9 +104,10 @@
                     <span class="comment-submit" onclick="openModal()"> Submission </span>
                 </div>
 
+                <!--등록 모달-->
                 <div id="comment-modal">
                     <div id="comment-modal-detail">
-                        
+
                         <div>별점을 선택해주세요.</div>
 
                         <div class="rating_box">
@@ -120,15 +121,42 @@
 
                         <div id="comment-submit">
                             <textarea name="comments" id="comments_input"></textarea>
-                            <button id="comments_button">등록</button>
+                            <button id="comments_button" onclick="nextModal()">등록</button>
                         </div>
                         
-                        <div class="close-btn" onclick="closeModel()">
+                        <div class="close-btn" onclick="closeModal1()">
                             <span>X</span>
                         </div>
                         
                     </div>
                 </div>
+
+                <!--닉네임, 비밀번호 등록-->
+                <div id="userInfo-modal">
+                    <div id="userInfo-modal-detail">
+
+                        <div id="userInfo-submit">
+                            <div class="userInfo-submit-div">
+                                <div>이름</div>
+                                <input type="text" name="userInfo" class="userInfo_input" placeholder="이름을 입력하세요"/>
+                            </div>   
+                            
+                            <div class="userInfo-submit-div">
+                                <div>암호</div>
+                                <input type="text" name="password" class="userInfo_input" placeholder="암호를 입력하세요"/>
+                            <div class="userInfo-submit-div">
+                        </div>    
+                        <button id="userInfo_button" onclick="submitUserComment()">등록</button>
+                        
+                        <div class="close-btn" onclick="closeModal2()">
+                            <span>X</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
 

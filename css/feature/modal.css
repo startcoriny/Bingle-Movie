@@ -38,7 +38,8 @@
 }
 
 
-#comment-submit {
+#comment-submit,
+#userInfo-submit {
   display: flex;
   justify-content: space-between;
   height: 10vh;
@@ -48,11 +49,23 @@
   width: 40vh;
 }
 
-#comments_input:focus {
+.userInfo-submit-div {
+  margin: 10px;
+}
+
+#comments_input:focus,
+.userInfo_input:focus {
   outline: none;
 }
 
-#comment-modal {
+.userInfo_input {
+  height: 2vh;
+  padding: 3px;
+  margin-top: 3px;
+}
+
+#comment-modal,
+#userInfo-modal {
   display: none;
   position: fixed;
   top: 0;
@@ -62,7 +75,8 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#comment-modal-detail {
+#comment-modal-detail,
+#userInfo-modal-detail {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -72,7 +86,8 @@
   border-radius: 5px;
 }
 
-#comments_button {
+#comments_button,
+#userInfo_button {
   width: 10vh;
   background-color: goldenrod;
   border: none;
@@ -86,4 +101,10 @@
   right: 15px;
   font-size: 20px;
   cursor: pointer;
+}
+
+#userInfo_button {
+  position: absolute;
+  right: 30px;
+  padding: 5px;
 }
