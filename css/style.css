@@ -6,55 +6,102 @@
   font-style: normal;
 }
 
-header {
+.header-detail {
   display: flex;
-  background-color: black;
+  justify-content: center;
+}
+
+.header-detail span {
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: normal;
+  margin: 10px;
+}
+
+#search-box {
+  display: flex;
+  padding: 30px 20px 80px;
   align-items: center;
   justify-content: center;
-  color: white;
-  width: 100%;
-  height: 80px;
+  height: 5vh;
 }
 
-#search_main {
+.search-box-input {
   display: flex;
-  padding: 20px;
-  justify-content: space-evenly;
-  width: 100%;
-  border-bottom: 1px solid black;
+  justify-content: center;
 }
 
-#container {
-  padding: 20px;
+#search_input {
+  border-radius: 30px;
+  background: #000000;
+  border: 1px solid #838383;
+  height: 4vh;
+  width: 25vw;
+  padding: 10px 15px 10px;
+  color: #fff;
+}
+
+#search_input:focus {
+  outline: none;
+}
+
+#search_input::placeholder {
+  font-size: 15px;
+  color: #FFF;
+  font-family: 'Poppins', sans-serif;  
+}
+
+#search_btn {
+  width: 120px;
+  height: 39px;
+  border-radius: 30px;
+  background: goldenrod;
+  color: #FFF;
+  border: 2px solid #838383;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  
+}
+
+.fa-magnifying-glass {
+  position: relative;
+  right: 2.8vw;
+  top: 2vh;
+  color: #fff;
+  font-size: medium;
+  
+}
+
+#card-list {
   width: 100%;
-  justify-self: center;
-  user-select: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
+  background-color: #000000;
 }
 
-.movieCards {
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 6px 12px black;
+.movie-card {
+  width: 22%;
+  margin: 20px;
+  border-radius: 5px;
   cursor: pointer;
-  width: 20%;
-  transition-property: width, height;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-.movieCards:hover {
-  width: 24%;
-}
-
-footer {
+.movie-card img {
+  height: auto;
+  display: block;
   width: 100%;
-  height: 80px;
-  bottom: 0;
-  position: bottom;
-  text-align: center;
-  background-color: white;
-  border-top: 2px solid black;
+}
+
+.movie-card:hover {
+  transform: scale(1.1); /* 호버할 때 크기를 1.1배로 확대 */
 }

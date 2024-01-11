@@ -1,4 +1,4 @@
-#Mainpage_container {
+#mainpage-container {
   width: 100%;
   height: 911px;
   overflow: hidden;
@@ -6,7 +6,7 @@
   position: relative;
 }
 
-#mainTitleContainer {
+#main-title-container {
   position: absolute;
   width: 100%;
   top: 49%;
@@ -15,11 +15,16 @@
 }
 
 h1 {
-  font-family: 'iceJaram-Rg';
+  /*font-family: 'iceJaram-Rg';*/
+  font-family: 'Poppins', sans-serif;  
   font-size: 100px;
   color: goldenrod;
   padding-left: 325px;
   margin-bottom: 53px;
+}
+
+#main-title {
+  padding: 0px;
 }
 
 video {
@@ -127,7 +132,7 @@ a span:nth-child(4) {
   }
 }
 
-#mainTitle div{
+#main-title div{
   position: absolute;
   right: 10px;
 }
