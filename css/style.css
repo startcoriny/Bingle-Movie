@@ -1,15 +1,9 @@
-@font-face {
-  font-family: "iceJaram-Rg";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceJaram-Rg.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .header-detail {
   display: flex;
   justify-content: center;
 }
+
+
 
 .header-detail span {
   color: #FFF;
@@ -77,7 +71,7 @@
   
 }
 
-#card-list {
+#card_list {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -85,7 +79,7 @@
   background-color: #000000;
 }
 
-.movie-card {
+.movie_card {
   width: 22%;
   margin: 20px;
   border-radius: 5px;
@@ -96,12 +90,12 @@
   transition: transform 0.3s ease;
 }
 
-.movie-card img {
+.movie_card img {
   height: auto;
   display: block;
   width: 100%;
 }
 
-.movie-card:hover {
+.movie_card:hover {
   transform: scale(1.1); /* 호버할 때 크기를 1.1배로 확대 */
 }

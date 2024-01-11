@@ -1,12 +1,21 @@
-#mainpage-container {
+@font-face {
+  font-family: "iceJaram-Rg";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceJaram-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+#mainpage_Container {
   width: 100%;
-  height: 911px;
+  height: 100vh;
   overflow: hidden;
   margin: 0px auto;
   position: relative;
 }
 
-#main-title-container {
+#maintitle_Container {
   position: absolute;
   width: 100%;
   top: 49%;
@@ -23,12 +32,12 @@ h1 {
   margin-bottom: 53px;
 }
 
-#main-title {
-  padding: 0px;
+#main_title {
+  font-family: "iceJaram-Rg";
 }
 
 video {
-  width: 1920px;
+  width: 100%;
 }
 
 a {
@@ -43,6 +52,7 @@ a {
   letter-spacing: 4px;
   overflow: hidden;
   margin-right: 50px;
+  font-weight: bolder;
 }
 
 
