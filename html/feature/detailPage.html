@@ -32,76 +32,64 @@
                     <div class="comment-detail">
                         <div class="comment-user">
                             <div class="comment-user-name">hahaha</div>
-                            <div>★★★★★ 5 </div>
+                            <div class="comment-user-etc">
+                                <div>★★★★★ 5 </div>
+                                <div class="comment-update-delete">
+                                    <span class="comment-update" onclick="updateComment()">수정</span>
+                                    <span class="comment-delete" onclick="openValidationModal()">삭제</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="comment">
-                            <span>와 재밌어요</span>
+                            <input name="comment_input" type="text" value="와 재밌어요" readonly>
+                        </div>
+                        <div class="update-btn hidden">
+                            <span class="update-btn-btn">저장</span>
                         </div>
                     </div>
 
                     <div class="comment-detail">
                         <div class="comment-user">
                             <div class="comment-user-name">hahaha</div>
-                            <div>★★★★★ 5 </div>
+                            <div class="comment-user-etc">
+                                <div>★★★★★ 5 </div>
+                                <div class="comment-update-delete">
+                                    <span class="comment-update" onclick="updateComment()">수정</span>
+                                    <span class="comment-delete" onclick="openValidationModal()">삭제</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="comment">
-                            <span>와 재밌어요</span>
+                            <input name="comment_input" type="text" value="와 재밌어요" readonly>
+                        </div>
+                        <div class="update-btn hidden">
+                            <span class="update-btn-btn">저장</span>
                         </div>
                     </div>
 
                     <div class="comment-detail">
                         <div class="comment-user">
                             <div class="comment-user-name">hahaha</div>
-                            <div>★★★★★ 5 </div>
+                            <div class="comment-user-etc">
+                                <div>★★★★★ 5 </div>
+                                <div class="comment-update-delete">
+                                    <span class="comment-update" onclick="updateComment()">수정</span>
+                                    <span class="comment-delete" onclick="openValidationModal()">삭제</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="comment">
-                            <span>와 재밌어요</span>
+                            <input name="comment_input" type="text" value="와 재밌어요" readonly>
+                        </div>
+                        <div class="update-btn hidden">
+                            <span class="update-btn-btn">저장</span>
                         </div>
                     </div>
 
-                    <div class="comment-detail">
-                        <div class="comment-user">
-                            <div class="comment-user-name">hahaha</div>
-                            <div>★★★★★ 5 </div>
-                        </div>
-                        <div class="comment">
-                            <span>와 재밌어요</span>
-                        </div>
-                    </div>
-
-                    <div class="comment-detail">
-                        <div class="comment-user">
-                            <div class="comment-user-name">hahaha</div>
-                            <div>★★★★★ 5 </div>
-                        </div>
-                        <div class="comment">
-                            <span>와 재밌어요</span>
-                        </div>
-                    </div>
-
-                    <div class="comment-detail">
-                        <div class="comment-user">
-                            <div class="comment-user-name">hahaha</div>
-                            <div>★★★★★ 5 </div>
-                        </div>
-                        <div class="comment">
-                            <span>와 재밌어요</span>
-                        </div>
-                    </div>
-
-                    <div class="comment-detail">
-                        <div class="comment-user">
-                            <div class="comment-user-name">hahaha</div>
-                            <div>★★★★★ 5 </div>
-                        </div>
-                        <div class="comment">
-                            <span>와 재밌어요</span>
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="comment-button">
-                    <span class="comment-submit" onclick="openModal()"> Submission </span>
+                    <span class="comment-submit" onclick="openReviewModal()"> Submission </span>
                 </div>
 
                 <!--등록 모달-->
@@ -121,10 +109,10 @@
 
                         <div id="comment-submit">
                             <textarea name="comments" id="comments_input"></textarea>
-                            <button id="comments_button" onclick="nextModal()">등록</button>
+                            <button id="comments_button" onclick="openValidationModal()">등록</button>
                         </div>
                         
-                        <div class="close-btn" onclick="closeModal1()">
+                        <div class="close-btn" onclick="closeReviewModal()">
                             <span>X</span>
                         </div>
                         
@@ -146,16 +134,14 @@
                                 <input type="text" name="password" class="userInfo_input" placeholder="암호를 입력하세요"/>
                             <div class="userInfo-submit-div">
                         </div>    
-                        <button id="userInfo_button" onclick="submitUserComment()">등록</button>
+                        <button id="userInfo_button" onclick="submitInformation()">확인</button>
                         
-                        <div class="close-btn" onclick="closeModal2()">
+                        <div class="close-btn" onclick="closeValidationModal()">
                             <span>X</span>
                         </div>
                         
                     </div>
                 </div>
-
-
 
             </div>
         </div>
@@ -165,5 +151,6 @@
     </div>
     <script src="/js/common.js"></script>
     <script src="/js/modal.js"></script>
+    <script src="/js/updatecomment.js"></script>
 </body>
 </html>
