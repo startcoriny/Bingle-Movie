@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/common/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/feature/detailPage.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/feature/modal.css">
+    <title>Bingle Movie Detail Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="backspace"> < Back </div>
+        <div id="header"></div>
+
+        <div class="movie-info">
+            <img src="/img/sample.jpg" alt="">
+            <div class="movie-info-detail">
+                <h1 class="movie-title">웡카</h1>
+                <p class="movie-release">2024년 1월 31일</p>
+                <p class="movie-score">평점 : 7.09</p>
+                <p class="story">마법사이자 초콜릿 메이커 ‘윌리 웡카’의 꿈은 디저트의 성지, ‘달콤 백화점’에 자신만의 초콜릿 가게를 여는 것.
+                    가진 것이라고는 낡은 모자 가득한 꿈과 단돈 12소베른 뿐이지만 특별한 마법의 초콜릿으로 사람들을 사로잡을 자신이 있다.
+                    하지만 먹을 것도, 잠잘 곳도, 의지할 사람도 없는 상황 속에서 낡은 여인숙에 머물게 된 ‘웡카’는 ‘스크러빗 부인’과 ‘블리처’의 계략에 빠져 눈더미처럼 불어난
+                    숙박비로 인해 순식간에 빚더미에 오른다. 게다가 밤마다 초콜릿을 훔쳐가는 작은 도둑 ‘움파 룸파’의 등장과 ‘달콤 백화점’을 독점한
+                    초콜릿 카르텔의 강력한 견제까지. 세계 최고의 초콜릿 메이커가 되는 길은 험난하기만 한데…</p>
+            
+                <div class="comments">댓글</div>
+                <div id="comments-container">
+                    
+                    <div class="comment-detail">
+                        <div class="comment-user">
+                            <div class="comment-user-name">hahaha</div>
+                            <div>★★★★★ 5 </div>
+                        </div>
+                        <div class="comment">
+                            <span>와 재밌어요</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-detail">
+                        <div class="comment-user">
+                            <div class="comment-user-name">hahaha</div>
+                            <div>★★★★★ 5 </div>
+                        </div>
+                        <div class="comment">
+                            <span>와 재밌어요</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-detail">
+                        <div class="comment-user">
+                            <div class="comment-user-name">hahaha</div>
+                            <div>★★★★★ 5 </div>
+                        </div>
+                        <div class="comment">
+                            <span>와 재밌어요</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-detail">
+                        <div class="comment-user">
+                            <div class="comment-user-name">hahaha</div>
+                            <div>★★★★★ 5 </div>
+                        </div>
+                        <div class="comment">
+                            <span>와 재밌어요</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-detail">
+                        <div class="comment-user">
+                            <div class="comment-user-name">hahaha</div>
+                            <div>★★★★★ 5 </div>
+                        </div>
+                        <div class="comment">
+                            <span>와 재밌어요</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-detail">
+                        <div class="comment-user">
+                            <div class="comment-user-name">hahaha</div>
+                            <div>★★★★★ 5 </div>
+                        </div>
+                        <div class="comment">
+                            <span>와 재밌어요</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-detail">
+                        <div class="comment-user">
+                            <div class="comment-user-name">hahaha</div>
+                            <div>★★★★★ 5 </div>
+                        </div>
+                        <div class="comment">
+                            <span>와 재밌어요</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comment-button">
+                    <span class="comment-submit" onclick="openModal()"> Submission </span>
+                </div>
+
+                <div id="comment-modal">
+                    <div id="comment-modal-detail">
+                        
+                        <div>별점을 선택해주세요.</div>
+
+                        <div class="rating_box">
+                            <div class="rating">
+                                ★★★★★
+                                <span class="rating_star">★★★★★</span>
+                                <input type="range" value="1" step="1" min="0" max="10">
+                            </div>
+                            <div id="score"></div>
+                        </div>
+
+                        <div id="comment-submit">
+                            <textarea name="comments" id="comments_input"></textarea>
+                            <button id="comments_button">등록</button>
+                        </div>
+                        
+                        <div class="close-btn" onclick="closeModel()">
+                            <span>X</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--footer 추가-->
+        <div id="footer"></div>
+    </div>
+    <script src="/js/common.js"></script>
+    <script src="/js/modal.js"></script>
+</body>
+</html>
