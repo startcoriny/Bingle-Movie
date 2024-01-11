@@ -26,7 +26,6 @@
 }
 
 .comments {
-  font-size: 14px;
   margin-bottom: 10px;
 }
 
@@ -44,6 +43,30 @@
   position: relative;
 }
 
+.comment input {
+  background-color: #838383;
+  border: none;
+  outline: navajowhite;
+  font-size: 14px;
+  color: #fff;
+}
+
+.comment-user-etc {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.comment-update-delete {
+  font-size: 14px;
+}
+
+.comment-update,
+.comment-delete {
+  margin-right: 4px;
+  cursor: pointer;
+}
+
 .comment-button {
   margin-top: 35px;
   display: flex;
@@ -59,4 +82,24 @@
   text-align: center;
   line-height: 39px;
   cursor: pointer;
+}
+
+.update-btn {
+  justify-content: end;
+}
+
+.hidden {
+  display: none;
+}
+
+.update-btn-btn {
+  background: goldenrod;
+  border-radius: 5px;
+  padding: 5px;
+  color: #000;
+  font-size: 14px;  
+}
+
+.comment-detail {
+  margin-right: 10px;
 }
