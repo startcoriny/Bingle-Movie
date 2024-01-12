@@ -92,7 +92,7 @@ if (cardIds.length > 0) {
         const cardInfoString = window.localStorage.getItem(cardId);
         if (cardInfoString) {
             const cardInfo = JSON.parse(cardInfoString);
-            console.log('카드 ID:', cardId, '카드 정보:', cardInfo);
+            //console.log('카드 ID:', cardId, '카드 정보:', cardInfo);
 
             // 필요한 작업 수행
             const div = document.createElement("div");
