@@ -30,7 +30,7 @@
 }
 
 #comments-container {
-  max-height: 27vh; 
+  max-height: 24vh; 
   overflow-y: auto; 
   margin-bottom: 20px;
 }
