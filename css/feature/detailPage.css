@@ -3,7 +3,7 @@
   width: auto;
   height: 90vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
@@ -13,6 +13,7 @@
 }
 
 .movie-info-detail {
+  width: 1000px;
   margin: 10px 30px;
   color: #fff;
 }
