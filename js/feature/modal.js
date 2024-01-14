@@ -26,6 +26,7 @@ rating_input.addEventListener('input', () => {
     rating_star.style.width = `${rating_input.value * 10}%`;
 
     let inputValue = rating_input.value;
+    
     for (let i = 0; i <= 10; i++) {
         if (inputValue == i) {
             score.innerHTML = "";

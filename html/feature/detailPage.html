@@ -11,150 +11,71 @@
 
 <body>
     <div class="container">
-        <div class="backspace"> < Back </div>
+        <div class="backspace" onclick="window.history.back()">< Back</a></div>
         <div id="header"></div>
 
         <div class="movie-info">
-            <!---
-            <img src="/img/sample.jpg" alt="">
-            <div class="movie-info-detail">
-                <h1 class="movie-title">웡카</h1>
-                <p class="movie-release">2024년 1월 31일</p>
-                <p class="movie-score">평점 : 7.09</p>
-                <p class="story">마법사이자 초콜릿 메이커 ‘윌리 웡카’의 꿈은 디저트의 성지, ‘달콤 백화점’에 자신만의 초콜릿 가게를 여는 것.
-                    가진 것이라고는 낡은 모자 가득한 꿈과 단돈 12소베른 뿐이지만 특별한 마법의 초콜릿으로 사람들을 사로잡을 자신이 있다.
-                    하지만 먹을 것도, 잠잘 곳도, 의지할 사람도 없는 상황 속에서 낡은 여인숙에 머물게 된 ‘웡카’는 ‘스크러빗 부인’과 ‘블리처’의 계략에 빠져 눈더미처럼 불어난
-                    숙박비로 인해 순식간에 빚더미에 오른다. 게다가 밤마다 초콜릿을 훔쳐가는 작은 도둑 ‘움파 룸파’의 등장과 ‘달콤 백화점’을 독점한
-                    초콜릿 카르텔의 강력한 견제까지. 세계 최고의 초콜릿 메이커가 되는 길은 험난하기만 한데…</p>
-                <div class="comments">댓글</div>
-                -->
 
+            <!--동적 생성-->
 
-                <!-- 동적 생성-->
-                <div id="comments-container">
-                
-                    <div class="comment-detail">
-                        <div class="comment-user">
-                            <div class="comment-user-name">hahaha</div>
-                            <div class="comment-user-etc">
-                                <div>★★★★★ 5 </div>
-                                <div class="comment-update-delete">
-                                    <span class="comment-update" onclick="updateComment()">수정</span>
-                                    <span class="comment-delete" onclick="openValidationModal()">삭제</span>
-                                </div>
-                            </div>
+            <!--등록 모달-->
+            <div id="comment-modal">
+                <div id="comment-modal-detail">
+
+                    <div class="modal-text">별점을 선택해주세요.</div>
+
+                    <div class="rating_box">
+                        <div class="rating">
+                            ★★★★★
+                            <span class="rating_star">★★★★★</span>
+                            <input type="range" value="1" step="1" min="0" max="10">
                         </div>
-                        <div class="comment">
-                            <input name="comment_input" type="text" value="와 재밌어요" readonly>
-                        </div>
-                        <div class="update-btn hidden">
-                            <span class="update-btn-btn">저장</span>
-                        </div>
+                        <div id="score"></div>
                     </div>
 
-                    <div class="comment-detail">
-                        <div class="comment-user">
-                            <div class="comment-user-name">hahaha</div>
-                            <div class="comment-user-etc">
-                                <div>★★★★★ 5 </div>
-                                <div class="comment-update-delete">
-                                    <span class="comment-update" onclick="updateComment()">수정</span>
-                                    <span class="comment-delete" onclick="openValidationModal()">삭제</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment">
-                            <input name="comment_input" type="text" value="와 재밌어요" readonly>
-                        </div>
-                        <div class="update-btn hidden">
-                            <span class="update-btn-btn">저장</span>
-                        </div>
+                    <div id="comment-submit">
+                        <textarea name="comments" id="comments_input"></textarea>
+                        <button id="comments_button" onclick="openValidationModal()">등록</button>
                     </div>
-
-                    <div class="comment-detail">
-                        <div class="comment-user">
-                            <div class="comment-user-name">hahaha</div>
-                            <div class="comment-user-etc">
-                                <div>★★★★★ 5 </div>
-                                <div class="comment-update-delete">
-                                    <span class="comment-update" onclick="updateComment()">수정</span>
-                                    <span class="comment-delete" onclick="openValidationModal()">삭제</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment">
-                            <input name="comment_input" type="text" value="와 재밌어요" readonly>
-                        </div>
-                        <div class="update-btn hidden">
-                            <span class="update-btn-btn">저장</span>
-                        </div>
+                    <div class="close-btn" onclick="closeReviewModal()">
+                        <span>X</span>
                     </div>
-
+                    
                 </div>
-                
-                <div class="comment-button">
-                    <span class="comment-submit" onclick="openReviewModal()"> Submission </span>
-                </div>
-
-                <!--등록 모달-->
-                <div id="comment-modal">
-                    <div id="comment-modal-detail">
-
-                        <div>별점을 선택해주세요.</div>
-
-                        <div class="rating_box">
-                            <div class="rating">
-                                ★★★★★
-                                <span class="rating_star">★★★★★</span>
-                                <input type="range" value="1" step="1" min="0" max="10">
-                            </div>
-                            <div id="score"></div>
-                        </div>
-
-                        <div id="comment-submit">
-                            <textarea name="comments" id="comments_input"></textarea>
-                            <button id="comments_button" onclick="openValidationModal()">등록</button>
-                        </div>
-                        <div class="close-btn" onclick="closeReviewModal()">
-                            <span>X</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <!--닉네임, 비밀번호 등록-->
-                <div id="userInfo-modal">
-                    <div id="userInfo-modal-detail">
-
-                        <div id="userInfo-submit">
-                            <div class="userInfo-submit-div">
-                                <div>이름</div>
-                                <input type="text" name="userInfo" class="userInfo_input" placeholder="이름을 입력하세요"/>
-                            </div>   
-                            
-                            <div class="userInfo-submit-div">
-                                <div>암호</div>
-                                <input type="text" name="password" class="userInfo_input" placeholder="암호를 입력하세요"/>
-                            <div class="userInfo-submit-div">
-                        </div>    
-                        <button id="userInfo_button" onclick="submitInformation()">확인</button>
-                        
-                        <div class="close-btn" onclick="closeValidationModal()">
-                            <span>X</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
             </div>
-        <!--</div>-->
 
-        <!--footer 추가-->
+            <!--닉네임, 비밀번호 등록-->
+            <div id="userInfo-modal">
+                <div id="userInfo-modal-detail">
+
+                    <div id="userInfo-submit">
+                        <div class="userInfo-submit-div">
+                            <div class="modal-text">이름</div>
+                            <input type="text" name="userInfo" class="userInfo_input" placeholder="이름을 입력하세요"/>
+                        </div>   
+                        
+                        <div class="userInfo-submit-div">
+                            <div class="modal-text">암호</div>
+                            <input type="text" name="password" class="userInfo_input" placeholder="암호를 입력하세요"/>
+                        <div class="userInfo-submit-div">
+                    </div>    
+                    <button id="userInfo_button" onclick="submitInformation()">확인</button>
+                    
+                    <div class="close-btn" onclick="closeValidationModal()">
+                        <span>X</span>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
         <div id="footer"></div>
     </div>
-    <script src="/js/common.js"></script>
-    <script src="/js/updatecomment.js"></script>
-    <script src="/js/detailPage.js"></script>
-    <script src="/js/modal.js"></script>
+
+    <script src="/js/common/common.js"></script>
+    <script src="/js/feature/commentWriter.js"></script>
+    <script src="/js/page/detailPage.js"></script>
+    <script src="/js/feature/modal.js"></script>
 </body>
 </html>
