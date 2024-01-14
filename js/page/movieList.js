@@ -8,11 +8,11 @@ let baseImgUrl = 'https://image.tmdb.org/t/p/original'
 
 const cardIds = readURLParameter('cardIds');
 
+/**
+ * cardIds 의 cardId 에 대해 로컬 스토리지에서 정보를 가져와, html 에 뿌리기
+ */
 if (cardIds.length > 0) {
     
-    /**
-     * cardIds 의 cardId 에 대해 로컬 스토리지에서 정보를 가져와, html 에 뿌리기
-     */
     for (const cardId of cardIds) {
 
         const cardInfoString = window.localStorage.getItem(cardId);

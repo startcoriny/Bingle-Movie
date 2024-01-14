@@ -22,20 +22,24 @@ function submitInformation() {
   inputUserInfos.push(inputUserInfo);
   save();
 
-  name = "";
-  text = "";
-  password = "";
-  score = "";
-  star = "";
+  document.querySelector("input[name='userInfo']").value = "";
+  document.querySelector("#comments_input").value = "";
+  document.querySelector("input[name='password']").value = "";
+  document.querySelector("#score").innerHTML = "";
+  document.querySelector(".rating_star").innerHTML = "";
 
   document.getElementById("userInfo-modal").style.display = "none";
 
-  //새로고침 추가해야됨
+  // 페이지 새로고침
+  location.reload();
 }
 
 
 function save() {
-  let existingData = localStorage.getItem("667538");
+  const params = new URLSearchParams(window.location.search);
+  const cardId = params.get('cardId');
+
+  let existingData = localStorage.getItem(cardId);
 
   let dataArray = {};
   dataArray = JSON.parse(existingData);
@@ -45,7 +49,7 @@ function save() {
   } else {
     dataArray.comment.push(inputUserInfo);
   }
-  localStorage.setItem("667538", JSON.stringify(dataArray));
+  localStorage.setItem(cardId, JSON.stringify(dataArray));
 };
 
 
