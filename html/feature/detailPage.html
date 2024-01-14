@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <div class="backspace"> < Back </div>
+        <div class="backspace" onclick="window.history.back()">< Back</a></div>
         <div id="header"></div>
 
         <div class="movie-info">
@@ -22,7 +22,7 @@
             <div id="comment-modal">
                 <div id="comment-modal-detail">
 
-                    <div>별점을 선택해주세요.</div>
+                    <div class="modal-text">별점을 선택해주세요.</div>
 
                     <div class="rating_box">
                         <div class="rating">
@@ -50,12 +50,12 @@
 
                     <div id="userInfo-submit">
                         <div class="userInfo-submit-div">
-                            <div>이름</div>
+                            <div class="modal-text">이름</div>
                             <input type="text" name="userInfo" class="userInfo_input" placeholder="이름을 입력하세요"/>
                         </div>   
                         
                         <div class="userInfo-submit-div">
-                            <div>암호</div>
+                            <div class="modal-text">암호</div>
                             <input type="text" name="password" class="userInfo_input" placeholder="암호를 입력하세요"/>
                         <div class="userInfo-submit-div">
                     </div>    

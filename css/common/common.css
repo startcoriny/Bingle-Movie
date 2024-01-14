@@ -13,7 +13,7 @@
 html,
 body,
 .container {
-  height: 100vh;
+  height: 120vh;
   background-color: #000;
   font-family: 'Poppins', sans-serif; 
 }
@@ -22,13 +22,15 @@ body,
   padding: 40px;
 }
 
+.backspace,
 .backspace a {
   color: #fff;
   font-size: larger;
   font-family: 'Poppins', sans-serif;
+  cursor: pointer;
 }
 
-.backspace a:link{
+.backspace a:link {
   text-decoration: none;
 }
 
