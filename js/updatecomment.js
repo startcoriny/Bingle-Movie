@@ -9,9 +9,11 @@ function updateComment(ele) {
   //display flex 로 변경
 }
 
+let inputUserInfo = {};
+
 // /**사용자 정보 저장 */
 function submitInformation() {
-  const inputUserInfo = {
+  inputUserInfo = {
     name: document.querySelector("input[name='userInfo']").value,
     text: document.querySelector("#comments_input").value,
     password: document.querySelector("input[name='password']").value,
@@ -38,17 +40,22 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 const ul = document.querySelector("ul");
 
-// const name = document.getElementById("userInfo_input").value;
-// const text = document.getElementById("comments_input").value;
-// const password = document.getElementById("comments_input").value;
-// const score = document.getElementById("score_input").value; 필요성 모름
-
 // 전체 아이템을 저장할 배열
 let inputUserInfos = [];
 
 //string 형태로 배열에 저장
 const save = () => {
-  localStorage.setItem("inputUserInfos", JSON.stringify(inputUserInfos));
+  let existingData = localStorage.getItem("667538"); //667538 을 고유 키값으로 변경
+
+  let dataArray = {};
+  dataArray = JSON.parse(existingData);
+
+  if (!("comment" in dataArray)) {
+    dataArray.comment = inputUserInfos;
+  } else {
+    dataArray.comment.push(inputUserInfo);
+  }
+  localStorage.setItem("667538", JSON.stringify(dataArray)); //667538 을 고유 키값으로 변경
 };
 
 /* 삭제버튼 기능 */
@@ -92,21 +99,6 @@ const addItem = (inputUserInfo) => {
 
 // const handler = (event) => {
 //   event.preventDefault();
-//   // 폼이 제출될 때 (submit 이벤트 가 일어날때) 페이지 새로고침 되지 않도록 함
-
-//   /* 저장될 유저의 정보 */ // <Q1. 저장할때 value 값을 어떻게 저장해야하나>
-//   const inputUserInfo = {
-//     name: document.querySelector("input[name='userInfo']"), //name 영화 Id 값이랑 안겹치게
-//     text: document.querySelector("input[name='comment']"),
-//     password: document.querySelector("input[name='password']"), //('input[name="password"]')
-//     score: document.querySelector(".rating_star"), //id="score"??  <02. 별 모양은 따로 클래스가 설정된게 없는데 score 값을 출력할 때 앞에다가 '★' 추가해도 되나..? ex) ★ 2.5>
-//   };
-
-//   inputUserInfos.push(inputUserInfo);
-//   addItem(inputUserInfo);
-//   save();
-//   input.value = ""; //인풋창 초기화
-// };
 
 /* 가져오기 */
 // const init = () => {
@@ -123,6 +115,3 @@ const addItem = (inputUserInfo) => {
 
 // init();
 // form.addEventListener("submit", handler);
-
-//class 을 불러올 때 document.querySelector('.userInfo_input')
-//name 명으로 가져올 때 document.querySelector("input[name='userInfo']")
