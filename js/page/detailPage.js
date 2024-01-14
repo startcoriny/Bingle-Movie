@@ -1,8 +1,10 @@
+/**
+ * 쿼리 스트링에서 cardId 값 조회한 후, 로컬 스토리지에 해당 cardId 에 대한 정보 출력
+ */
 document.addEventListener("DOMContentLoaded", function () {
 
   const params = new URLSearchParams(window.location.search);
   const cardId = params.get('cardId');
-  console.log(cardId);
 
   let baseImgUrl = 'https://image.tmdb.org/t/p/original';
 
@@ -11,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (movieDetails) {
 
     const cardInfoString = window.localStorage.getItem(cardId);
+    
     if (cardInfoString) {
       const cardInfo = JSON.parse(cardInfoString);
-      console.log('카드 ID:', cardId, '카드 정보:', cardInfo);
-
+      
       movieDetails.innerHTML = `
           <img src="${baseImgUrl}${cardInfo.poster_path}" alt="${cardInfo.title}">
           <div class="movie-info-detail">
