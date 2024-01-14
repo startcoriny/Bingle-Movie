@@ -107,3 +107,13 @@ if (cardIds.length > 0) {
         window.localStorage.getItem.length
     }
 }
+
+
+document.querySelector('.movie-card-list').addEventListener('click', function (event) {
+    const clickedCard = event.target.closest('.movie_card');
+
+    if (clickedCard) {
+        const cardId = clickedCard.id;
+        window.location.href = `./html/feature/detailpage.html?cardId=${cardId}`;
+    }
+});
