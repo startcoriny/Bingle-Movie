@@ -15,19 +15,24 @@ function submitInformation() {
     name: document.querySelector("input[name='userInfo']").value,
     text: document.querySelector("#comments_input").value,
     password: document.querySelector("input[name='password']").value,
-    score: document.querySelector("#score").innerHTML, //<ex) ★ 2.5>
+    score: document.querySelector("#score").innerHTML,
+    //<ex) ★ 2.5>
   };
 
+  //로컬 스토리지에 저장
   inputUserInfos.push(inputUserInfo);
   addItem(inputUserInfo);
   save();
-  input.value = ""; //인풋창 초기화
-  //로컬 스토리지에 저장
+
+  //인풋창 초기화
+  document.querySelector("input[name='userInfo']").value = "";
+  document.querySelector("#comments_input").value = "";
+  document.querySelector("input[name='password']").value = "";
+  document.querySelector("#score").innerHTML = "";
+  document.querySelector(".rating_star").innerHTML = "";
 
   document.getElementById("userInfo-modal").style.display = "none";
 }
-
-/* 여기부터 쿠키맨 */
 
 const form = document.querySelector("form");
 const input = document.querySelector("input");
