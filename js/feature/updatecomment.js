@@ -29,11 +29,11 @@ function submitInformation() {
   input.value = ""; //인풋창 초기화
 
    //인풋창 초기화
-   document.querySelector("input[name='userInfo']").value = "";
-   document.querySelector("#comments_input").value = "";
-   document.querySelector("input[name='password']").value = "";
-   document.querySelector("#score").innerHTML = "";
-   document.querySelector(".rating_star").innerHTML = "";
+  document.querySelector("input[name='userInfo']").value = "";
+  document.querySelector("#comments_input").value = "";
+  document.querySelector("input[name='password']").value = "";
+  document.querySelector("#score").innerHTML = "";
+  document.querySelector(".rating_star").innerHTML = "";
   //
   document.getElementById("userInfo-modal").style.display = "none";
 }
