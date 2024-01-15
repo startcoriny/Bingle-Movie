@@ -28,6 +28,8 @@ body,
   font-size: larger;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .backspace a:link {

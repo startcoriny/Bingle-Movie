@@ -20,16 +20,17 @@
       <div id="header">
       </div>
       <canvas id="canvas" width="300" height="300"></canvas>
+      <canvas id="canvas2" width="300" height="300"></canvas>
     </div>
 
     <div class="header-detail">
-      <span>New</span>
+      <span id="ragin">movie rating</span>
       <span>.</span>
-      <span>Action</span>
+      <span id="tit">sort by title</span>
       <span>.</span>
-      <span>Suspenseful</span>
+      <span id="pop">popularity</span>
       <span>.</span>
-      <span>2024</span>
+      <span id="new">recent movies</span>
     </div>
 
     <div id="search-box">
@@ -95,13 +96,52 @@
       //애니메이션 적용
       function animate() {
         requestAnimationFrame(animate)
-        gltf.scene.rotation.y += 0.01;
+        gltf.scene.rotation.y -= 0.01;
         renderer.render(scene, camera);
       }
       animate();
     })
+</script>
 
-  </script>
+
+
+
+<script type="module">
+  import { GLTFLoader } from 'GLTFLoader';
+  import * as THREE from 'three';
+
+  // 두 번째 씬 생성
+  let scene2 = new THREE.Scene();
+
+  // 두 번째 렌더러 생성
+  let renderer2 = new THREE.WebGLRenderer({
+      canvas: document.querySelector('#canvas2'),
+      antialias: true, // 테두리 부드럽게
+  });
+  renderer2.shadowMap.enabled = false;
+  renderer2.outputEncoding = THREE.sRGBEncoding;
+
+  // 두 번째 카메라, 조명, 배경 설정
+  let camera2 = new THREE.PerspectiveCamera(40, 1);
+  camera2.position.set(0, 0, 4);
+  scene2.background = new THREE.Color('#000');
+  let light1 = new THREE.AmbientLight(0xffffff, 0.8); // (color, intensity)
+  scene2.add(light1);
+
+  // 두 번째 모델 로드 및 애니메이션
+  let loader2 = new GLTFLoader();
+  loader2.load('./cats_-_rigged_and_posed/scene.gltf', function (gltf2) {
+      gltf2.scene.position.set(0, 0, 0);
+      scene2.add(gltf2.scene);
+
+      function animate2() {
+          requestAnimationFrame(animate2);
+          gltf2.scene.rotation.y += 0.01;
+          renderer2.render(scene2, camera2);
+      }
+      animate2();
+  });
+</script>
 
 </body>
 
