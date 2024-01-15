@@ -1,104 +1,149 @@
 <!-- subpage 만들 공간 가장 중요한 페이지!! -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bingle Movie</title>
-    <link rel="stylesheet" href="./css/common/common.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <script
-      src="https://kit.fontawesome.com/d84eab0825.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
 
-  <body>
-    <div class="container">
-      <div id="titleContainer">
-        <div class="backspace">
-          <a href="./html/feature/mainPage.html"> < Main</a>
-        </div>
-        <div id="header"></div>
-        <canvas id="canvas" width="300" height="300"></canvas>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bingle Movie</title>
+  <link rel="stylesheet" href="./css/common/common.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://kit.fontawesome.com/d84eab0825.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="titleContainer">
+      <div class="backspace">
+        <a href="./html/feature/mainPage.html">
+          < Main</a>
       </div>
-
-      <div class="header-detail">
-        <span id="ragin">movie rating</span>
-        <span>.</span>
-        <span id="tit">sort by title</span>
-        <span>.</span>
-        <span id="pop">popularity</span>
-        <span>.</span>
-        <span id="new">recent movies</span>
-      </div>
-
-      <div id="search-box">
-        <div class="search-box-input">
-          <input type="text" id="search_input" placeholder="Search for movie" />
-          <i class="fa-solid fa-magnifying-glass" id="cursorPoint"></i>
-        </div>
-      </div>
-
-      <div id="card_list" class="movie-card-list"></div>
-
-      <div id="footer"></div>
+      <div id="header"></div>
+      <canvas id="canvas" width="300" height="300"></canvas>
+      <canvas id="canvas2" width="300" height="300"></canvas>
     </div>
 
-    <script src="./js/common/common.js"></script>
-    <script src="./js/page/movieList.js"></script>
-    <script src="./js/feature/search.js"></script>
+    <div class="header-detail">
+      <span id="ragin">movie rating</span>
+      <span>.</span>
+      <span id="tit">sort by title</span>
+      <span>.</span>
+      <span id="pop">popularity</span>
+      <span>.</span>
+      <span id="new">recent movies</span>
+    </div>
 
-    <!-- animation 기능 three.js 활용 -->
-    <script type="importmap">
+
+    <div id="search-box">
+      <div class="search-box-input">
+        <input type="text" id="search_input" placeholder="Search for movie" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+
+    <div id="card_list" class="movie-card-list"></div>
+
+    <div id="footer"></div>
+  </div>
+
+  <script src="./js/common/common.js"></script>
+  <script src="./js/page/movieList.js"></script>
+  <script src="./js/feature/search.js"></script>
+
+  <!-- animation 기능 three.js 활용 -->
+  <script type="importmap">
       {
         "imports": {
           "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
           "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
         }
+    }
+  </script>
+
+  <script type="module">
+    import { GLTFLoader } from 'GLTFLoader';
+    import * as THREE from 'three';
+
+    //1.장면 만들기, 이 scene 위에 그림 그릴 수 있음(add)
+
+    let scene = new THREE.Scene();
+
+    //2.브라우저에 띄우기
+    let renderer = new THREE.WebGLRenderer({
+      //어디에 띄울지
+      canvas: document.querySelector('#canvas'),
+      antialias: true,//테두리 부드럽게
+
+    });
+    renderer.shadowMap.enabled = false;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    //카메라, 조명, 배경 세팅
+
+    //원근법이 적용된 카메라 
+    let camera = new THREE.PerspectiveCamera(40, 1);
+    // 카메라 위치 조정
+    // x축, y축, z축
+    camera.position.set(0, 0, 4)
+    scene.background = new THREE.Color('#000');
+    let light = new THREE.AmbientLight(0xffffff, 0.8); //(color, intensity)
+    scene.add(light);
+
+    let loader = new GLTFLoader();
+    loader.load('./cats_-_rigged_and_posed/scene.gltf', function (gltf) {
+      //load 된 후 실행될 콜백함수
+      scene.add(gltf.scene);
+
+      //애니메이션 적용
+      function animate() {
+        requestAnimationFrame(animate)
+        gltf.scene.rotation.y -= 0.01;
+        renderer.render(scene, camera);
       }
-    </script>
-    <script type="module">
-      import { GLTFLoader } from "GLTFLoader";
-      import * as THREE from "three";
+      animate();
+    })
+  </script>
 
-      //1.장면 만들기, 이 scene 위에 그림 그릴 수 있음(add)
 
-      let scene = new THREE.Scene();
 
-      //2.브라우저에 띄우기
-      let renderer = new THREE.WebGLRenderer({
-        //어디에 띄울지
-        canvas: document.querySelector("#canvas"),
-        antialias: true, //테두리 부드럽게
-      });
-      renderer.shadowMap.enabled = false;
-      renderer.outputEncoding = THREE.sRGBEncoding;
 
-      //카메라, 조명, 배경 세팅
+  <script type="module">
+    import { GLTFLoader } from 'GLTFLoader';
+    import * as THREE from 'three';
 
-      //원근법이 적용된 카메라
-      let camera = new THREE.PerspectiveCamera(40, 1);
-      // 카메라 위치 조정
-      // x축, y축, z축
-      camera.position.set(0, 0, 4);
-      scene.background = new THREE.Color("#000");
-      let light = new THREE.AmbientLight(0xffffff, 0.8); //(color, intensity)
-      scene.add(light);
+    // 두 번째 씬 생성
+    let scene2 = new THREE.Scene();
 
-      let loader = new GLTFLoader();
-      loader.load("./cats_-_rigged_and_posed/scene.gltf", function (gltf) {
-        //load 된 후 실행될 콜백함수
-        scene.add(gltf.scene);
+    // 두 번째 렌더러 생성
+    let renderer2 = new THREE.WebGLRenderer({
+      canvas: document.querySelector('#canvas2'),
+      antialias: true, // 테두리 부드럽게
+    });
+    renderer2.shadowMap.enabled = false;
+    renderer2.outputEncoding = THREE.sRGBEncoding;
 
-        //애니메이션 적용
-        function animate() {
-          requestAnimationFrame(animate);
-          gltf.scene.rotation.y += 0.01;
-          renderer.render(scene, camera);
-        }
-        animate();
-      });
-    </script>
-  </body>
+    // 두 번째 카메라, 조명, 배경 설정
+    let camera2 = new THREE.PerspectiveCamera(40, 1);
+    camera2.position.set(0, 0, 4);
+    scene2.background = new THREE.Color('#000');
+    let light1 = new THREE.AmbientLight(0xffffff, 0.8); // (color, intensity)
+    scene2.add(light1);
+
+    // 두 번째 모델 로드 및 애니메이션
+    let loader2 = new GLTFLoader();
+    loader2.load('./cats_-_rigged_and_posed/scene.gltf', function (gltf2) {
+      gltf2.scene.position.set(0, 0, 0);
+      scene2.add(gltf2.scene);
+
+      function animate2() {
+        requestAnimationFrame(animate2);
+        gltf2.scene.rotation.y += 0.01;
+        renderer2.render(scene2, camera2);
+      }
+      animate2();
+    });
+  </script>
+
+</body>
+
 </html>
