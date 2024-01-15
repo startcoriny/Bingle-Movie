@@ -107,7 +107,8 @@
 /**
 유효성 검사
 */
-#passwordModal {
+#passwordModal-update,
+#passwordModal-delete {
   display: none;
   position: fixed;
   top: 0;
