@@ -20,16 +20,28 @@ if (cardIds.length > 0) {
         if (cardInfoString) {
 
             const cardInfo = JSON.parse(cardInfoString);
+
+            const moviecardcontainer = document.createElement("div");
+            moviecardcontainer.className = "moviecardcontainer";
+            card_list.appendChild(moviecardcontainer);
+
             const div = document.createElement("div");
-            
             div.className = "movie_card";
             div.id = cardId;
             div.style.width = '250px';
             div.style.padding = '20px';
             div.style.backgroundColor = 'rgb(233 69 69)';
             div.innerHTML = `<img src="${baseImgUrl}${cardInfo.poster_path}" alt="이미지없음"></img>`;
-            
-            card_list.appendChild(div);
+            moviecardcontainer.appendChild(div);
+
+            const back = document.createElement("div");
+            back.className = "back";
+            back.style.width = '250px';
+            back.style.padding = '10px';
+            back.style.backgroundColor = 'rgb(91 2 2)';
+            back.style.color = 'white';
+            back.innerHTML = `<h1>${cardInfo.title}</h1>`;
+            moviecardcontainer.appendChild(back);
         }
         window.localStorage.getItem.length
     }

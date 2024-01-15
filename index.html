@@ -1,6 +1,7 @@
 <!-- subpage 만들 공간 가장 중요한 페이지!! -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +13,15 @@
 
 <body>
   <div class="container">
-    <div class="backspace"><a href="./html/feature/mainPage.html">< Main</a> </div>
-    <div id="header"></div>
-    
+    <div id="titleContainer">
+      <div class="backspace"><a href="./html/feature/mainPage.html">
+          < Main</a>
+      </div>
+      <div id="header">
+      </div>
+      <canvas id="canvas" width="300" height="300"></canvas>
+    </div>
+
     <div class="header-detail">
       <span>New</span>
       <span>.</span>
@@ -27,22 +34,75 @@
 
     <div id="search-box">
       <div class="search-box-input">
-        <input  type="text"
-                id="search_input"
-                placeholder="Search for movie"/>
+        <input type="text" id="search_input" placeholder="Search for movie" />
         <i class="fa-solid fa-magnifying-glass"></i>
       </div>
     </div>
 
     <div id="card_list" class="movie-card-list">
     </div>
-  
+
     <div id="footer"></div>
   </div>
-  
+
   <script src="./js/common/common.js"></script>
   <script src="./js/page/movieList.js"></script>
   <script src="./js/feature/search.js"></script>
 
+  <!-- animation 기능 three.js 활용 -->
+  <script type="importmap">
+    {
+        "imports": {
+          "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+          "GLTFLoader" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+        }
+    }
+  </script>
+  <script type="module">
+    import { GLTFLoader } from 'GLTFLoader';
+    import * as THREE from 'three';
+
+    //1.장면 만들기, 이 scene 위에 그림 그릴 수 있음(add)
+
+    let scene = new THREE.Scene();
+
+    //2.브라우저에 띄우기
+    let renderer = new THREE.WebGLRenderer({
+      //어디에 띄울지
+      canvas: document.querySelector('#canvas'),
+      antialias: true,//테두리 부드럽게
+
+    });
+    renderer.shadowMap.enabled = false;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    //카메라, 조명, 배경 세팅
+
+    //원근법이 적용된 카메라 
+    let camera = new THREE.PerspectiveCamera(40, 1);
+    // 카메라 위치 조정
+    // x축, y축, z축
+    camera.position.set(0, 0, 4)
+    scene.background = new THREE.Color('#000');
+    let light = new THREE.AmbientLight(0xffffff, 0.8); //(color, intensity)
+    scene.add(light);
+
+    let loader = new GLTFLoader();
+    loader.load('./cats_-_rigged_and_posed/scene.gltf', function (gltf) {
+      //load 된 후 실행될 콜백함수
+      scene.add(gltf.scene);
+
+      //애니메이션 적용
+      function animate() {
+        requestAnimationFrame(animate)
+        gltf.scene.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+      animate();
+    })
+
+  </script>
+
 </body>
+
 </html>

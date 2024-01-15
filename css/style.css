@@ -77,6 +77,15 @@
   background-color: #000000;
 }
 
+.moviecardcontainer{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
 .movie_card {
   width: 22%;
   margin: 20px;
@@ -85,7 +94,6 @@
   margin-bottom: 70px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease;
 }
 
 .movie_card img {
@@ -94,6 +102,48 @@
   width: 100%;
 }
 
-.movie_card:hover {
-  transform: scale(1.1); /* 호버할 때 크기를 1.1배로 확대 */
+.moviecardcontainer:hover {
+  transform: rotateY(180deg);
+}
+
+.back{
+  font-family: "iceJaram-Rg";
+  position: absolute;
+  left: 10px;
+  backface-visibility: hidden;
+  width: 22%;
+  height: 397px;
+  margin: 20px;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: rotateY(180deg);
+}
+
+#titleContainer {
+  position: relative;
+}
+
+#canvas {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}
+@keyframes move{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+#title1{
+  animation: move 3s ;
+}
+#title2{
+  animation-delay: 4s;
+  animation: move 3s ;
 }
