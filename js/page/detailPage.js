@@ -170,15 +170,14 @@ document.addEventListener("DOMContentLoaded", function () {
            * 수정 버튼 이벤트
            */
           commentUpdate.onclick = function() {
-            checkValidationModal(updateBtnBtn, updateBtn); //자식, 부모
+            updateValidationModal(updateBtnBtn, updateBtn); //자식, 부모
           };
 
           /**
            * 삭제 버튼 이벤트
            */
           commentDelete.onclick = function () {
-            openValidationModal();
-            deleteComment(this);
+            deleteValidationModal(updateBtnBtn);
           };
 
         }  //for문
