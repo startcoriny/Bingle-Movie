@@ -52,6 +52,7 @@
   outline: navajowhite;
   font-size: 14px;
   color: #fff;
+  width: 700px;
 }
 
 .comment-user-etc {
@@ -106,6 +107,7 @@
   padding: 5px;
   color: #000;
   font-size: 14px;  
+  cursor: pointer;
 }
 
 .comment-detail {
@@ -115,4 +117,3 @@
 .modal-text {
   color: #fff;
 }
-

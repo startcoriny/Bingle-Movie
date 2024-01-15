@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       commentsContainer.setAttribute('id', 'comments-container');
       movieInfoDetail.appendChild(commentsContainer);
 
-      if (!("comment" in cardInfo)) {
+      if (!("comment" in cardInfo) || cardInfo.comment.length == 0) {
         const pleaseComment = document.createElement('div');
         pleaseComment.textContent = '리뷰를 남겨주세요!';
         commentsContainer.appendChild(pleaseComment);
@@ -130,9 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const commentUpdate = document.createElement('span');
           commentUpdate.classList.add('comment-update');
           commentUpdate.textContent = '수정';
-          commentUpdate.onclick = function () {
-            updateComment();
-          };
+      
           updateDeleteDiv.appendChild(commentUpdate);
 
           /**
@@ -141,9 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const commentDelete = document.createElement('span');
           commentDelete.classList.add('comment-delete');
           commentDelete.textContent = '삭제';
-          commentDelete.onclick = function () {
-            openValidationModal();
-          };
+          
           updateDeleteDiv.appendChild(commentDelete);
 
           const commentContent = document.createElement('div');
@@ -167,8 +163,23 @@ document.addEventListener("DOMContentLoaded", function () {
           const updateBtnBtn = document.createElement('span');
           updateBtnBtn.classList.add('update-btn-btn');
           updateBtnBtn.textContent = '저장';
+          updateBtnBtn.setAttribute('id', i); //인텍스 저장
           updateBtn.appendChild(updateBtnBtn);
-        
+
+          /**
+           * 수정 버튼 이벤트
+           */
+          commentUpdate.onclick = function() {
+            updateValidationModal(updateBtnBtn, updateBtn); //자식, 부모
+          };
+
+          /**
+           * 삭제 버튼 이벤트
+           */
+          commentDelete.onclick = function () {
+            deleteValidationModal(updateBtnBtn);
+          };
+
         }  //for문
       
       } //else 문
