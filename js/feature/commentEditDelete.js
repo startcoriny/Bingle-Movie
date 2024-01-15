@@ -25,8 +25,11 @@ function updateValidationModal(updateBtnBtn, updateBtn) {
   validatePasswordUpdateBtnClickHandler = () => {
     const inputPassword = document.getElementById('passwordInput-update').value;
 
-    if (data.comment[commentIdx].password !== inputPassword) {
-      alert('이름이나 비밀번호가 다릅니다. 다시 입력하세요');
+    if (inputPassword == null || inputPassword == "") {
+      alert('비밀번호를 입력하세요');
+    
+    } else if (data.comment[commentIdx].password !== inputPassword) {
+      alert('비밀번호가 유효하지 않습니다. 다시 입력하세요.');
 
     } else {
       document.getElementById('passwordModal-update').style.display = 'none';
@@ -106,8 +109,12 @@ function deleteValidationModal(updateBtnBtn) {
     console.log(event.type);
     const inputPassword = document.getElementById('passwordInput-delete').value;
 
-    if (data.comment[commentIdx].password !== inputPassword) {
-      alert('이름이나 비밀번호가 다릅니다. 다시 입력하세요');
+    if (inputPassword == null || inputPassword == "") {
+      alert('비밀번호를 입력하세요');
+    
+    } else if (data.comment[commentIdx].password !== inputPassword) {
+      alert('비밀번호가 유효하지 않습니다. 다시 입력하세요.');
+    
     } else {
       document.getElementById('passwordModal-delete').style.display = 'none';
       document.getElementById('passwordInput-delete').value = '';
