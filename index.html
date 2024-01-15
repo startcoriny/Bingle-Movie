@@ -14,11 +14,11 @@
 <body>
   <div class="container">
     <div id="titleContainer">
-      <div class="backspace"><a href="./html/feature/mainPage.html">
+      <div class="backspace">
+        <a href="./html/feature/mainPage.html">
           < Main</a>
       </div>
-      <div id="header">
-      </div>
+      <div id="header"></div>
       <canvas id="canvas" width="300" height="300"></canvas>
       <canvas id="canvas2" width="300" height="300"></canvas>
     </div>
@@ -33,6 +33,7 @@
       <span id="new">recent movies</span>
     </div>
 
+
     <div id="search-box">
       <div class="search-box-input">
         <input type="text" id="search_input" placeholder="Search for movie" />
@@ -40,8 +41,7 @@
       </div>
     </div>
 
-    <div id="card_list" class="movie-card-list">
-    </div>
+    <div id="card_list" class="movie-card-list"></div>
 
     <div id="footer"></div>
   </div>
@@ -52,13 +52,14 @@
 
   <!-- animation 기능 three.js 활용 -->
   <script type="importmap">
-    {
+      {
         "imports": {
           "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
-          "GLTFLoader" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+          "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
         }
     }
   </script>
+
   <script type="module">
     import { GLTFLoader } from 'GLTFLoader';
     import * as THREE from 'three';
@@ -101,47 +102,47 @@
       }
       animate();
     })
-</script>
+  </script>
 
 
 
 
-<script type="module">
-  import { GLTFLoader } from 'GLTFLoader';
-  import * as THREE from 'three';
+  <script type="module">
+    import { GLTFLoader } from 'GLTFLoader';
+    import * as THREE from 'three';
 
-  // 두 번째 씬 생성
-  let scene2 = new THREE.Scene();
+    // 두 번째 씬 생성
+    let scene2 = new THREE.Scene();
 
-  // 두 번째 렌더러 생성
-  let renderer2 = new THREE.WebGLRenderer({
+    // 두 번째 렌더러 생성
+    let renderer2 = new THREE.WebGLRenderer({
       canvas: document.querySelector('#canvas2'),
       antialias: true, // 테두리 부드럽게
-  });
-  renderer2.shadowMap.enabled = false;
-  renderer2.outputEncoding = THREE.sRGBEncoding;
+    });
+    renderer2.shadowMap.enabled = false;
+    renderer2.outputEncoding = THREE.sRGBEncoding;
 
-  // 두 번째 카메라, 조명, 배경 설정
-  let camera2 = new THREE.PerspectiveCamera(40, 1);
-  camera2.position.set(0, 0, 4);
-  scene2.background = new THREE.Color('#000');
-  let light1 = new THREE.AmbientLight(0xffffff, 0.8); // (color, intensity)
-  scene2.add(light1);
+    // 두 번째 카메라, 조명, 배경 설정
+    let camera2 = new THREE.PerspectiveCamera(40, 1);
+    camera2.position.set(0, 0, 4);
+    scene2.background = new THREE.Color('#000');
+    let light1 = new THREE.AmbientLight(0xffffff, 0.8); // (color, intensity)
+    scene2.add(light1);
 
-  // 두 번째 모델 로드 및 애니메이션
-  let loader2 = new GLTFLoader();
-  loader2.load('./cats_-_rigged_and_posed/scene.gltf', function (gltf2) {
+    // 두 번째 모델 로드 및 애니메이션
+    let loader2 = new GLTFLoader();
+    loader2.load('./cats_-_rigged_and_posed/scene.gltf', function (gltf2) {
       gltf2.scene.position.set(0, 0, 0);
       scene2.add(gltf2.scene);
 
       function animate2() {
-          requestAnimationFrame(animate2);
-          gltf2.scene.rotation.y += 0.01;
-          renderer2.render(scene2, camera2);
+        requestAnimationFrame(animate2);
+        gltf2.scene.rotation.y += 0.01;
+        renderer2.render(scene2, camera2);
       }
       animate2();
-  });
-</script>
+    });
+  </script>
 
 </body>
 
