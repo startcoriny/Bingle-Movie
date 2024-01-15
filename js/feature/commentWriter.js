@@ -10,28 +10,42 @@ function submitInformation() {
   const text = document.querySelector("#comments_input").value;
   const password = document.querySelector("input[name='password']").value;
   const score = document.querySelector("#score").innerHTML;
-  const star = document.querySelector(".rating_star").innerHTML;
+  const numberRegex = /^[0-9]+$/;
 
-  inputUserInfo = {
-    name: name,
-    text: text,
-    password: password,
-    score: score,
-  };
+  //이름, 비번 유효성 검사
+  if (name == null || name == "") {
+    alert('이름을 입력하세요!');
+  
+  } else if (password == null || password == "") {
+    alert('비밀번호를 입력하세요!');
+  
+  } else if (!numberRegex.test(password)) {
+    alert('비밀번호는 숫자만 입력하세요!');
 
-  inputUserInfos.push(inputUserInfo);
-  save();
+  } else {
+    inputUserInfo = {
+      name: name,
+      text: text,
+      password: password,
+      score: score,
+    };
+  
+    inputUserInfos.push(inputUserInfo);
+    save();
+  
+    document.querySelector("input[name='userInfo']").value = "";
+    document.querySelector("#comments_input").value = "";
+    document.querySelector("input[name='password']").value = "";
+    document.querySelector("#score").innerHTML = "";
+    document.querySelector(".rating_star").innerHTML = "";
+  
+    document.getElementById("userInfo-modal").style.display = "none";
+  
+    alert('리뷰가 등록되었습니다!');
 
-  document.querySelector("input[name='userInfo']").value = "";
-  document.querySelector("#comments_input").value = "";
-  document.querySelector("input[name='password']").value = "";
-  document.querySelector("#score").innerHTML = "";
-  document.querySelector(".rating_star").innerHTML = "";
-
-  document.getElementById("userInfo-modal").style.display = "none";
-
-  // 페이지 새로고침
-  location.reload();
+    // 페이지 새로고침
+    location.reload();
+  }
 }
 
 
@@ -59,8 +73,20 @@ function openReviewModal() {
 }
 
 function openValidationModal() {
-  document.getElementById('comment-modal').style.display = 'none';
-  document.getElementById('userInfo-modal').style.display = 'block';
+
+  const text = document.querySelector("#comments_input").value;
+  const score = document.querySelector("#score").innerHTML;
+
+  if (score == "" || score == null) {
+    alert('별점을 매겨주세요!');
+
+  } else if (text == "" || text == null) {
+    alert('리뷰를 작성해주세요!');
+  
+  } else {
+    document.getElementById('comment-modal').style.display = 'none';
+    document.getElementById('userInfo-modal').style.display = 'block';
+  }
 }
 
 function closeReviewModal() {
