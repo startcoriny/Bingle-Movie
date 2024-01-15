@@ -14,21 +14,22 @@ function updateValidationModal(updateBtnBtn, updateBtn) {
   document.getElementById('validatePasswordBtn').addEventListener('click', () => {
     const inputPassword = document.getElementById('passwordInput').value;
 
-    if (data.comment[commentIdx].password == inputPassword) {
+    if (data.comment[commentIdx].password !== inputPassword) {
 
+      alert('이름이나 비밀번호가 다릅니다. 다시 입력하세요');
+
+    } else {
       document.getElementById('passwordModal').style.display = 'none';
       document.getElementById('passwordInput').value = '';
       pleaseUpdateComment(commentIdx, updateBtnBtn, updateBtn);
-
-    } else {
-      alert('이름이나 비밀번호가 다릅니다. 다시 입력하세요');
     }
   });
 
-  document.getElementById('closeModalBtn').addEventListener('click', () => {
-    document.getElementById('passwordModal').style.display = 'none';
-  });
 }
+
+document.getElementById('closeModalBtn').addEventListener('click', () => {
+  document.getElementById('passwordModal').style.display = 'none';
+});
 
 
 /**
@@ -81,14 +82,14 @@ function deleteValidationModal(updateBtnBtn) {
   document.getElementById('validatePasswordBtn').addEventListener('click', () => {
     const inputPassword = document.getElementById('passwordInput').value;
 
-    if (data.comment[commentIdx].password == inputPassword) {
-
+    if (data.comment[commentIdx].password !== inputPassword) {
+      alert('이름이나 비밀번호가 다릅니다. 다시 입력하세요');
+      
+    } else {
+      
       document.getElementById('passwordModal').style.display = 'none';
       document.getElementById('passwordInput').value = '';
       pleaseDeleteComment(commentIdx);
-
-    } else {
-      alert('이름이나 비밀번호가 다릅니다. 다시 입력하세요');
     }
   });
 

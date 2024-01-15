@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       commentsContainer.setAttribute('id', 'comments-container');
       movieInfoDetail.appendChild(commentsContainer);
 
-      if (!("comment" in cardInfo)) {
+      if (!("comment" in cardInfo) || cardInfo.comment.length == 0) {
         const pleaseComment = document.createElement('div');
         pleaseComment.textContent = '리뷰를 남겨주세요!';
         commentsContainer.appendChild(pleaseComment);
