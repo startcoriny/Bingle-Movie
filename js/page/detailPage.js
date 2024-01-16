@@ -204,22 +204,3 @@ document.addEventListener("DOMContentLoaded", function () {
   } 
 });
 
-
-/**
- * 이거 활용하려고 했는데 뭔가 자바스크립트 onclick 이 안 불러져서 저렇게 했습니다...
- * 부족한 제 탓... 죄송합니다...
-const cardInfo = JSON.parse(cardInfoString);
-
-movieDetails.innerHTML = `
-    <img src="${baseImgUrl}${cardInfo.poster_path}" alt="${cardInfo.title}">
-    <div class="movie-info-detail">
-        <h1 class="movie-title">${cardInfo.title}</h1>
-        <p class="movie-release">${cardInfo.release_date}</p>
-        <p class="movie-score">평점 : ${cardInfo.vote_average}</p>
-        <p class="story">${cardInfo.overview}</p>
-
-        <div class="comments">댓글</div>
-        
-    </div>`;
- */
-

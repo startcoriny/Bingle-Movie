@@ -1,3 +1,4 @@
+// 페이지 헤더 오류시 펼칠 문구
 document.addEventListener('DOMContentLoaded', function() {
 
   const message = "페이지를 불러올 수 없습니다";
