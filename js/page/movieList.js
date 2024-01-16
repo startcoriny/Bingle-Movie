@@ -1,4 +1,6 @@
 const card_list = document.querySelector("#card_list");
+
+// url에서 값 가져오기함수
 function readURLParameter(name) {
     const params = new URLSearchParams(window.location.search);
     return params.getAll(name);
@@ -9,6 +11,7 @@ let baseImgUrl = "https://image.tmdb.org/t/p/original";
 const cardIds = readURLParameter("cardIds");
 const buttonId = readURLParameter("buttonid");
 
+// 버튼에 따른 조건 표시
 if (buttonId == "sortRatings") {
     document.querySelector("#ragin").style.color = "#34EB37";
 } else if (buttonId == "sortTitle") {
@@ -19,9 +22,8 @@ if (buttonId == "sortRatings") {
     document.querySelector("#new").style.color = "#20DFE6";
 }
 
-/**
- * cardIds 의 cardId 에 대해 로컬 스토리지에서 정보를 가져와, html 에 뿌리기
- */
+
+// cardIds 의 cardId 에 대해 로컬 스토리지에서 정보를 가져와, html 에 뿌리기 css효과를 위한(container, front, back div)
 if (cardIds.length > 0) {
     for (const cardId of cardIds) {
         const cardInfoString = window.localStorage.getItem(cardId);
@@ -55,6 +57,7 @@ if (cardIds.length > 0) {
     }
 }
 
+// 카드 클릭하면 이미지에 따른 상세 페이지 이동
 document
     .querySelector(".movie-card-list")
     .addEventListener("click", function (event) {

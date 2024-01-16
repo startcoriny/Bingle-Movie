@@ -52,6 +52,7 @@ maintitle_Container.addEventListener("click", function (e) {
     });
 });
 
+// 영화 정렬하기
 function sortMovie(movies, buttonId) {
   if (buttonId == "sortRatings") {
     return movies.sort((a, b) => b["vote_average"] - a["vote_average"]);
